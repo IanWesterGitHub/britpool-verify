@@ -55,6 +55,12 @@ def run_verifier(*args):
     return proc.returncode, report
 
 
+def heading(text):
+    print("\n" + "=" * 78, flush=True)
+    print(text, flush=True)
+    print("=" * 78, flush=True)
+
+
 def typo_of(address):
     """Change the last character, which breaks the CashAddr checksum."""
     last = address[-1]
@@ -65,6 +71,8 @@ def main():
     address = verify_pool.generate_random_bch_address()
 
     # 1. Payout to a never-before-seen address
+    heading("CHECK 1 of 3: the block reward must go 100% to a brand-new random address\n"
+            "(expected result: VERIFICATION PASSED)")
     _, payout = run_verifier(address, "--coin", "bch")
     outputs = payout.get("outputs") or []
     paying = [o for o in outputs if o.get("satoshis", 0) > 0]
@@ -74,10 +82,14 @@ def main():
                  and paying[0].get("percent") == 100.0)
 
     # 2. A mistyped address must be refused at login
+    heading("CHECK 2 of 3: a mistyped address must be REFUSED by the pool\n"
+            "(expected result: 'Authorization failed' - a refusal here means the check PASSED)")
     _, typo = run_verifier(address, "--coin", "bch", "--username", typo_of(address))
     typo_ok = typo.get("result") == "auth_refused"
 
     # 3. Each connection gets unique work
+    heading("CHECK 3 of 3: every connection must receive unique work\n"
+            "(expected result: All extranonce1 values are unique)")
     _, unique = run_verifier("--coin", "bch", "--test-extranonce")
     unique_ok = unique.get("result") == "passed" and unique.get("all_unique") is True
 
@@ -125,10 +137,11 @@ def main():
             "run_url": latest["run_url"],
         }) + "\n")
 
-    print("\n" + "=" * 70)
-    print(f"OVERALL: {'PASS' if passed else 'FAIL'}  "
-          f"(payout={payout_ok}, typo_refused={typo_ok}, unique_work={unique_ok})")
-    print("=" * 70)
+    mark = lambda ok: "PASS" if ok else "FAIL"
+    heading(f"OVERALL: {mark(passed)}\n"
+            f"  Check 1 - 100% of the reward to the miner:  {mark(payout_ok)}\n"
+            f"  Check 2 - mistyped address refused:         {mark(typo_ok)}\n"
+            f"  Check 3 - unique work for every miner:      {mark(unique_ok)}")
     return 0 if passed else 1
 
 
