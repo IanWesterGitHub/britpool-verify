@@ -1,6 +1,6 @@
 # BritPool independent verification
 
-Every hour, GitHub's own servers check the [BritPool](https://britpool.com) Bitcoin Cash
+Several times a day, GitHub's own servers check the [BritPool](https://britpool.com) Bitcoin Cash
 solo mining pool and publish the result here. The pool operator can't edit GitHub's run logs,
 and every check ever run stays in this repository's history.
 
@@ -44,5 +44,6 @@ python3 verify_pool.py bch.britpool.com 3334 YOUR-BCH-ADDRESS --tls
 
 ## Limits
 
-This checks the work the pool hands out at the moment of each run, roughly hourly. GitHub may
-start scheduled runs a few minutes late.
+This checks the work the pool hands out at the moment of each run. The workflow is scheduled
+hourly, but GitHub runs free scheduled jobs on a best-effort basis and often skips slots, so in
+practice checks run several times a day, typically every few hours.

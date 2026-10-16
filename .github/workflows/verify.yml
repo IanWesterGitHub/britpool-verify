@@ -1,7 +1,8 @@
 name: Verify BritPool
 
-# Runs about hourly (GitHub may start scheduled runs a few minutes late),
-# and can also be started by hand from the Actions tab ("Run workflow").
+# Scheduled hourly; GitHub runs free scheduled jobs on a best-effort basis and often
+# skips slots, so in practice this runs several times a day.
+# It can also be started by hand from the Actions tab ("Run workflow").
 on:
   schedule:
     - cron: "17 * * * *"
