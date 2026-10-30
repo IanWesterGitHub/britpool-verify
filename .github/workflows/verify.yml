@@ -18,7 +18,7 @@ concurrency:
 env:
   # The verifier is fetched at this exact commit, so anyone can see which code ran.
   VERIFIER_REPO: IanWesterGitHub/stratum-speed-test
-  VERIFIER_COMMIT: cf47cae437ab74c9789ba91c36fb133ccf0e2d9c
+  VERIFIER_COMMIT: 7a80af06dcbc6480af7b4173ea4d441a175d543b
   POOL_HOST: bch.britpool.com
   POOL_PORT: "3334"
   POOL_TLS: "1"
