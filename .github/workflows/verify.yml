@@ -1,11 +1,10 @@
 name: Verify BritPool
 
-# Scheduled hourly; GitHub runs free scheduled jobs on a best-effort basis and often
-# skips slots, so in practice this runs several times a day.
+# Triggered hourly at :17 (UTC) by a Cloudflare Worker cron (britpool-verify-trigger),
+# which calls GitHub's workflow_dispatch API. GitHub's own free scheduler was
+# best-effort and often skipped slots, so it is no longer used.
 # It can also be started by hand from the Actions tab ("Run workflow").
 on:
-  schedule:
-    - cron: "17 * * * *"
   workflow_dispatch:
 
 permissions:
