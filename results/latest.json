@@ -1,24 +1,24 @@
 {
   "passed": true,
-  "checked_at": "2026-11-20T20:17:58Z",
+  "checked_at": "2026-11-20T21:17:57Z",
   "pool": "bch.britpool.com:3334",
   "tls": true,
-  "run_url": "https://github.com/IanWesterGitHub/britpool-verify/actions/runs/44810044715",
+  "run_url": "https://github.com/IanWesterGitHub/britpool-verify/actions/runs/44819035969",
   "verifier": {
     "repository": "IanWesterGitHub/stratum-speed-test",
     "commit": "7a80af06dcbc6480af7b4173ea4d441a175d543b"
   },
-  "block_height": 978207,
+  "block_height": 978214,
   "pool_signature": [
     "/BritPool/"
   ],
   "checks": {
     "payout_to_miner": {
       "passed": true,
-      "test_address": "bitcoincash:qp5tsjkpn4ygvw7emyapf709682458ax5spu0fnf8m",
+      "test_address": "bitcoincash:qr5hmcflqslewngwrcdy4tkl38p4zs47rveygzg7m5",
       "paying_outputs": 1,
       "miner_percent": 100.0,
-      "total_satoshis": 312715717,
+      "total_satoshis": 312799233,
       "result": "passed"
     },
     "typo_refused": {
