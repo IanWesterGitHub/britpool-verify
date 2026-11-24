@@ -346,3 +346,4 @@
 {"checked_at": "2026-11-24T07:17:57Z", "passed": true, "block_height": 978739, "payout": true, "typo_refused": true, "unique_work": true, "run_url": "https://github.com/IanWesterGitHub/britpool-verify/actions/runs/45346888978"}
 {"checked_at": "2026-11-24T08:17:56Z", "passed": true, "block_height": 978741, "payout": true, "typo_refused": true, "unique_work": true, "run_url": "https://github.com/IanWesterGitHub/britpool-verify/actions/runs/45354863004"}
 {"checked_at": "2026-11-24T09:17:59Z", "passed": true, "block_height": 978745, "payout": true, "typo_refused": true, "unique_work": true, "run_url": "https://github.com/IanWesterGitHub/britpool-verify/actions/runs/45363826780"}
+{"checked_at": "2026-11-24T10:17:56Z", "passed": true, "block_height": 978748, "payout": true, "typo_refused": true, "unique_work": true, "run_url": "https://github.com/IanWesterGitHub/britpool-verify/actions/runs/45373413204"}
